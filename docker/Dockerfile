@@ -12,7 +12,7 @@ RUN docker-php-ext-install pdo pdo_mysql bcmath zip gd sockets pdo_pgsql pgsql
 # Copy RoadRunner
 COPY --from=rr /usr/bin/rr /usr/bin/rr
 
-ADD ./php/php.ini /usr/local/etc/php/php.ini
+ADD php/php.ini /usr/local/etc/php/php.ini
 
 RUN php -r "copy('https://getcomposer.org/installer', 'composer-setup.php');"
 RUN php composer-setup.php
@@ -22,9 +22,8 @@ RUN curl --remote-name ./php/cacert.pem https://curl.se/ca/cacert.pem
 
 ENV COMPOSER_ALLOW_SUPERUSER 1
 
-COPY . /var/www
 WORKDIR /var/www
 
-RUN composer install --no-dev --optimize-autoloader --no-interaction
+#RUN composer install --no-dev --optimize-autoloader --no-interaction
 
 CMD ["/usr/bin/rr", "serve", "-d", "-c", ".rr.yaml"]

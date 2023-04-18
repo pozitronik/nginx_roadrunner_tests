@@ -1,0 +1,27 @@
+version: '3.7'
+name: 'yii-roadrunner'
+services:
+
+  roadrunner:
+    build:
+      context: ./docker
+    ports:
+      - 8080:8080
+    environment:
+      RR_VERSION: 2023.1.0
+    working_dir: /var/www
+    volumes:
+      - ./:/var/www
+      - ./docker/roadrunner/config/.rr.yaml:/etc/rr.yaml:ro
+    networks:
+      - backend
+
+# Networks Setup
+networks:
+  backend:
+    name: backend
+    driver: bridge
+    ipam:
+      driver: default
+      config:
+        - subnet: 192.168.101.0/28
