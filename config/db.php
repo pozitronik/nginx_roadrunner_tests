@@ -5,8 +5,8 @@ use yii\db\Connection;
 
 return [
 	'class' => Connection::class,
-	'dsn' => $_ENV['DB_DSN'],
-	'username' => $_ENV['DB_USER'],
-	'password' => $_ENV['DB_PASS'],
+	'dsn' => 'pgsql:host=postgres;port=5432;dbname=roadrunner',
+	'username' => 'root',
+	'password' => 'password',
 	'enableSchemaCache' => false,
 ];

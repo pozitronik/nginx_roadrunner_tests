@@ -54,6 +54,9 @@ $config = [
 		],
 		'db' => $db
 	],
+	'params' => [
+		'delay' => require __DIR__.'/../delay.php'
+	]
 ];
 
 return $config;

@@ -23,5 +23,15 @@ class SiteController extends Controller {
 		}
 		return "Status: {$exception->statusCode}";
 	}
+
+	/**
+	 * @return string
+	 */
+	public function actionIndex():string {
+		if (true === time_nanosleep(0, Yii::$app->params['delay']??0)) {
+			return 'hello, yii';
+		}
+		return 'no delay';
+	}
 }
 
