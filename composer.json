@@ -1,18 +1,30 @@
 {
-	"name": "pozitronik/yii2-rr",
-	"description": "test",
-	"minimum-stability": "stable",
-	"license": "proprietary",
-	"authors": [
+	"name" : "pozitronik/yii2-rr",
+	"description" : "test",
+	"minimum-stability" : "stable",
+	"license" : "proprietary",
+	"authors" : [
 		{
-			"name": "Pozitronik",
-			"email": "email@example.com"
+			"name" : "Pozitronik",
+			"email" : "email@example.com"
 		}
 	],
-	"require": {
-		"php": ">=8.2",
-		"spiral/roadrunner": "v2023.1.0",
-		"nyholm/psr7": "^1.6",
-		"spiral/roadrunner-http": "^2.2"
+	"require" : {
+		"php" : ">=8.2",
+		"yiisoft/yii2" : "2.0.47",
+		"spiral/roadrunner" : "v2023.1.0",
+		"nyholm/psr7" : "^1.6",
+		"spiral/roadrunner-http" : "^2.2"
+	},
+	"repositories" : [
+		{
+			"type" : "composer",
+			"url" : "https://asset-packagist.org"
+		}
+	],
+	"config": {
+		"allow-plugins": {
+			"yiisoft/yii2-composer": true
+		}
 	}
 }
