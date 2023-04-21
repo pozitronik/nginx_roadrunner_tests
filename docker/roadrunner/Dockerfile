@@ -11,4 +11,9 @@ RUN docker-php-ext-install pdo pdo_mysql bcmath zip gd sockets pdo_pgsql pgsql
 # Copy RoadRunner
 COPY --from=rr /usr/bin/rr /usr/bin/rr
 
+COPY --from=composer:latest /usr/bin/composer /usr/local/bin/composer
+RUN curl --remote-name ./php/cacert.pem https://curl.se/ca/cacert.pem
+
+ENV COMPOSER_ALLOW_SUPERUSER 1
+
 WORKDIR /var/www
