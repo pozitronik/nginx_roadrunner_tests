@@ -24,6 +24,8 @@ services:
   nginx:
     container_name: test_nginx
     image: nginx:latest
+    environment:
+      NGINX_ENTRYPOINT_WORKER_PROCESSES_AUTOTUNE: "0"
     ports:
       - "8081:8080"
     volumes:
