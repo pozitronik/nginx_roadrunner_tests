@@ -3,6 +3,7 @@ name: 'yii-roadrunner'
 services:
 
   roadrunner:
+    container_name: test_roadrunner
     build:
       context: ./docker/roadrunner
     ports:
@@ -16,7 +17,32 @@ services:
       - ./:/var/www
       - ./docker/php/config/php.ini:/usr/local/etc/php/php.ini
       - ./docker/roadrunner/config/.rr.yaml:/var/www/.rr.yaml:ro
-    command: ["/usr/bin/rr", "serve", "-d", "-c", ".rr.yaml"]
+    command: [ "/usr/bin/rr", "serve", "-d", "-c", ".rr.yaml" ]
+    networks:
+      - backend
+
+  nginx:
+    container_name: test_nginx
+    image: nginx:latest
+    ports:
+      - "8081:8080"
+    volumes:
+      - ./:/var/www
+      - ./docker/nginx/config:/etc/nginx/conf.d
+      - ./docker/nginx/include:/etc/nginx/include
+      - ./logs:/var/www/logs
+      - ./logs/nginx:/var/www/logs/nginx
+    links:
+      - php
+    networks:
+      - backend
+
+  php:
+    container_name: test_php
+    build: ./docker/php
+    volumes:
+      - .:/var/www
+      - ./docker/php/config/php.ini:/usr/local/etc/php/php.ini
     networks:
       - backend
 
