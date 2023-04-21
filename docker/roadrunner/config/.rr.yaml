@@ -5,12 +5,12 @@ rpc:
 server:
   command: "php worker.php"
   env:
-    - XDEBUG_SESSION: '1'
+    - XDEBUG_SESSION: '0'
 http:
   address: :8080
   pool:
     num_workers: 1
-    debug: true
+    debug: false
 
 reload:
   interval: 1s
