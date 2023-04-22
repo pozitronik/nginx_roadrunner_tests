@@ -1,0 +1,33 @@
+version: "2.7"
+
+env:
+  YII_DEBUG: true
+  YII_ENV: dev
+  YII_ALIAS_WEBROOT: ./web/
+  YII_ALIAS_WEB: 'http://127.0.0.1:8080/'
+server:
+  command: "php ./roadrunner_yii.php"
+  env:
+    - XDEBUG_SESSION: '1'
+http:
+  address: :8080
+  pool:
+    num_workers: 1
+    debug: true
+    maxJobs: 0
+    allocateTimeout: 15
+
+reload:
+  interval: 1s
+  patterns: [ ".php" ]
+  services:
+    http:
+      recursive: true
+      dirs: [ "/app" ]
+
+static:
+  # root directory for static file (http would not serve .php and .htaccess files).
+  dir: "web"
+
+  # list of extensions for forbid for serving.
+  forbid: [ ".php" ]
