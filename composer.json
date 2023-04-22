@@ -14,7 +14,13 @@
 		"yiisoft/yii2" : "2.0.47",
 		"spiral/roadrunner" : "v2023.1.0",
 		"nyholm/psr7" : "^1.6",
-		"spiral/roadrunner-http" : "^2.2"
+		"spiral/roadrunner-http" : "^2.2",
+		"yiisoft/yii2-bootstrap": "~2.0.0",
+		"charlesportwoodii/yii2-psr7-bridge": "dev-master",
+		"spiral/dumper": "dev-master",
+		"middlewares/uuid": "dev-master",
+		"middlewares/response-time": "dev-master",
+		"ajgarlag/psr15-dispatcher": "^0.2.0@dev"
 	},
 	"repositories" : [
 		{
