@@ -4,6 +4,8 @@ declare(strict_types = 1);
 use app\models\Users;
 use yii\log\FileTarget;
 use yii\caching\DummyCache;
+use yii\Psr7\web\Request;
+use yii\Psr7\web\Response;
 use yii\web\AssetManager;
 use yii\web\ErrorHandler;
 
@@ -20,7 +22,13 @@ $config = [
 	],
 	'components' => [
 		'request' => [
-			'cookieValidationKey' => 'roadrunner_test',
+			'class' => Request::class,
+			'enableCookieValidation' => false,
+			'enableCsrfValidation' => false,
+			'enableCsrfCookie' => false,
+		],
+		'response' => [
+			'class' => Response::class,
 		],
 		'cache' => [
 			'class' => DummyCache::class,
