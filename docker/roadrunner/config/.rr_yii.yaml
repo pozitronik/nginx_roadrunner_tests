@@ -8,14 +8,12 @@ env:
 server:
   command: "php ./roadrunner_yii.php"
   env:
-    - XDEBUG_SESSION: '0'
+    - XDEBUG_SESSION: 1'
 http:
   address: :8080
   pool:
     num_workers: 1
     debug: false
-    maxJobs: 0
-    allocateTimeout: 15
 
 reload:
   interval: 1s
