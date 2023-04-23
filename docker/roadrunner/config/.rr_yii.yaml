@@ -8,7 +8,7 @@ env:
 server:
   command: "php ./roadrunner_yii.php"
   env:
-    - XDEBUG_SESSION: 1'
+    - XDEBUG_SESSION: '0'
 http:
   address: :8080
   pool:
