@@ -4,10 +4,10 @@ declare(strict_types = 1);
 use app\models\Users;
 use yii\log\FileTarget;
 use yii\caching\DummyCache;
-use yii\Psr7\web\Request;
-use yii\Psr7\web\Response;
 use yii\web\AssetManager;
 use yii\web\ErrorHandler;
+use yii\web\Request;
+use yii\web\Response;
 
 $db = require __DIR__.'/db.php';
 
