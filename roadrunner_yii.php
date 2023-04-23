@@ -11,7 +11,7 @@ defined('YII_DEBUG') or define('YII_DEBUG', getenv('YII_DEBUG'));
 defined('YII_ENV') or define('YII_ENV', getenv('YII_ENV'));
 require_once __DIR__.'/vendor/autoload.php';
 require_once __DIR__.'/vendor/yiisoft/yii2/Yii.php';
-$config = require __DIR__.'/config/web.php';
+$config = require __DIR__.'/config/roadrunner.php.php';
 
 $worker = RoadRunner\Worker::create();
 $psrFactory = new Psr7\Factory\Psr17Factory();
