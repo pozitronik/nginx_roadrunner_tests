@@ -41,7 +41,7 @@ services:
       - backend
 
   nginx:
-    container_name: just_nginx
+    container_name: nginx
     image: nginx:latest
     environment:
       NGINX_ENTRYPOINT_WORKER_PROCESSES_AUTOTUNE: "0"
@@ -59,7 +59,7 @@ services:
       - backend
 
   php:
-    container_name: test_php
+    container_name: php-fpm
     build: ./docker/php
     volumes:
       - .:/var/www
